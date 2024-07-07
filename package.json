@@ -5,10 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:w": "bun run tauri dev",
-    "dev:a": "bun run tauri android dev",
-    "release:w": "bun run tauri build",
-    "release:a": "bun run tauri android build",
+    "dev:w": "tauri dev",
+    "dev:a": "tauri android dev",
+    "release:w": "tauri build",
+    "release:a": "tauri android build",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "tauri": "tauri"
