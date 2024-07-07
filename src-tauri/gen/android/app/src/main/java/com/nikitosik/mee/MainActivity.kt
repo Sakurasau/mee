@@ -1,3 +1,3 @@
-package com.tauri.dev
+package com.nikitosik.mee
 
 class MainActivity : TauriActivity()

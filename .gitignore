@@ -22,3 +22,13 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+.env.*
+
+# Android
+src-tauri/gen/android/app/arm/*
+src-tauri/gen/android/app/arm64/*
+src-tauri/gen/android/app/x86/*
+src-tauri/gen/android/app/x86_64/*
+src-tauri/gen/android/app/universal/*
+*.jks
