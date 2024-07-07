@@ -1,4 +1,5 @@
 import java.util.Properties
+import java.io.FileInputStream
 
 plugins {
     id("com.android.application")
@@ -13,16 +14,28 @@ val tauriProperties = Properties().apply {
     }
 }
 
+val localPropertiesFile = rootProject.file("./local.properties")
+val localProperties = Properties()
+localProperties.load(FileInputStream(localPropertiesFile))
+
 android {
     compileSdk = 34
     namespace = "com.nikitosik.mee"
     defaultConfig {
         manifestPlaceholders["usesCleartextTraffic"] = "false"
         applicationId = "com.nikitosik.mee"
-        minSdk = 24
+        minSdk = 27
         targetSdk = 34
         versionCode = tauriProperties.getProperty("tauri.android.versionCode", "1").toInt()
         versionName = tauriProperties.getProperty("tauri.android.versionName", "1.0")
+    }
+    signingConfigs {
+      create("release") {
+        keyAlias = localProperties["keyAlias"] as String
+        keyPassword = localProperties["keyPassword"] as String
+        storeFile = file(localProperties["storeFile"] as String)
+        storePassword = localProperties["storePassword"] as String
+      }
     }
     buildTypes {
         getByName("debug") {
@@ -30,7 +43,8 @@ android {
             isDebuggable = true
             isJniDebuggable = true
             isMinifyEnabled = false
-            packaging {                jniLibs.keepDebugSymbols.add("*/arm64-v8a/*.so")
+            packaging {
+                jniLibs.keepDebugSymbols.add("*/arm64-v8a/*.so")
                 jniLibs.keepDebugSymbols.add("*/armeabi-v7a/*.so")
                 jniLibs.keepDebugSymbols.add("*/x86/*.so")
                 jniLibs.keepDebugSymbols.add("*/x86_64/*.so")
@@ -43,6 +57,7 @@ android {
                     .plus(getDefaultProguardFile("proguard-android-optimize.txt"))
                     .toList().toTypedArray()
             )
+            signingConfig = signingConfigs.getByName("release")
         }
     }
     kotlinOptions {
