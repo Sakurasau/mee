@@ -21,7 +21,7 @@ export const Chat: FC<IChat> = ({}) => {
     setMessage(e.currentTarget.value)
   }
 
-  const handleSent = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+  const handleSent = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault()
     setMessage('')
   }

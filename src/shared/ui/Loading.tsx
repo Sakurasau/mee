@@ -15,10 +15,10 @@ const Loading: FC<LoadingProps> = ({ className, ...props }) => {
         cy="400"
         fill="none"
         r="200"
-        stroke-width="40"
+        strokeWidth="40"
         stroke="#E387FF"
-        stroke-dasharray="700 1400"
-        stroke-linecap="round"
+        strokeDasharray="700 1400"
+        strokeLinecap="round"
       />
       <circle
         className="origin-center animate-loading animate-alternate-reverse"
@@ -26,10 +26,10 @@ const Loading: FC<LoadingProps> = ({ className, ...props }) => {
         cy="400"
         fill="none"
         r="125"
-        stroke-width="40"
+        strokeWidth="40"
         stroke="#E387FF"
-        stroke-dasharray="700 1400"
-        stroke-linecap="round"
+        strokeDasharray="700 1400"
+        strokeLinecap="round"
       />
     </svg>
   )

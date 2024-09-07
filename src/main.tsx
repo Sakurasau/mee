@@ -4,7 +4,7 @@ import { Chat } from '@/pages/chat'
 import './app/styles/global.css'
 import Loading from './shared/ui/Loading'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Loading className="m-auto size-64" />
     <Loading className="m-auto size-32" />
