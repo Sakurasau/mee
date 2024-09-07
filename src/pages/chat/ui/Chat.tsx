@@ -4,7 +4,7 @@ import { ChangeEvent, useRef, useState } from 'react'
 import { Button, Input } from 'antd'
 import { HappyProvider } from '@ant-design/happy-work-theme'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MingcuteSendPlaneLine } from 'shared/icons/MingcuteSendPlaneLine'
+import { MingcuteSendPlaneLine } from '@/shared/icons/MingcuteSendPlaneLine'
 
 interface IChat {}
 
