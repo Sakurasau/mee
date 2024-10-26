@@ -1,14 +1,10 @@
 {
-  "name": "mee",
-  "version": "0.0.1",
-  "description": "Messenger Mee",
-  "author": "Savenko Nikita",
-  "type": "module",
+  "name": "mee-multiplatform",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "license": "GPL-3.0",
-  "workspaces": [
-    "packages/*"
-  ],
+  "main": "src/index.tsx",
   "scripts": {
     "dev": "vite",
     "dev:w": "tauri dev",
@@ -17,7 +13,6 @@
     "release:a": "node check-branch.cjs && tauri android build",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "serve": "serve -s dist -p 3000",
     "lint": "eslint ./src",
     "lint:debug": "eslint ./src --debug",
     "lint:fix": "eslint ./src --fix",
@@ -25,8 +20,21 @@
     "prettier:write": "prettier --write .",
     "tauri": "tauri"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Sakurasau/mee.git"
+  "keywords": [],
+  "dependencies": {
+    "mee-web": "workspace:^",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@tauri-apps/api": "^2.0.3",
+    "@tauri-apps/plugin-shell": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@vitejs/plugin-react": "^4.2.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.4.2",
+    "internal-ip": "^7.0.0",
+    "@tauri-apps/cli": "^2.0.4"
   }
 }
