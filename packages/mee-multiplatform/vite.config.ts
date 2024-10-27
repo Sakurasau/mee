@@ -11,7 +11,8 @@ export default defineConfig(async () => ({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@mee': path.resolve(__dirname, '../mee-web/src'),
+      '@multi': path.resolve(__dirname, '../mee-multiplatform/src'),
     },
   },
 

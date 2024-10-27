@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import Loading from '@mee/shared/ui/Loading'
+import { Chat } from '@mee/pages/chat'
 import './app/styles/global.css'
-import Loading from '@/shared/ui/Loading'
-import { Chat } from '@/pages/chat'
 
 const Main = ({}) => {
   return (
