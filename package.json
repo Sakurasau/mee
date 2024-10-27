@@ -10,20 +10,12 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "vite",
-    "dev:w": "tauri dev",
-    "dev:a": "tauri android dev",
-    "release:w": "node check-branch.cjs && tauri build",
-    "release:a": "node check-branch.cjs && tauri android build",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "serve": "serve -s dist -p 3000",
-    "lint": "eslint ./src",
-    "lint:debug": "eslint ./src --debug",
-    "lint:fix": "eslint ./src --fix",
-    "prettier": "prettier --check .",
-    "prettier:write": "prettier --write .",
-    "tauri": "tauri"
+    "dev:web": "pnpm --filter=mee-web dev",
+    "dev:win": "pnpm --filter=mee-multiplatform tauri dev",
+    "dev:android": "pnpm --filter=mee-multiplatform tauri android dev",
+    "release:win": "pnpm --filter=mee-multiplatform node check-branch.cjs && tauri build",
+    "release:android": "pnpm --filter=mee-multiplatform node check-branch.cjs && tauri android build",
+    "serve": "pnpm --filter=mee-web serve"
   },
   "repository": {
     "type": "git",

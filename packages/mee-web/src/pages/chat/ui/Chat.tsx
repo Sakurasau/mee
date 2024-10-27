@@ -4,7 +4,8 @@ import { ChangeEvent, useRef, useState } from 'react'
 import { Button, Input } from 'antd'
 import { HappyProvider } from '@ant-design/happy-work-theme'
 import { AnimatePresence, motion } from 'framer-motion'
-import { MingcuteSendPlaneLine } from '@/shared/icons/MingcuteSendPlaneLine'
+import { MingcuteSendPlaneLine } from '@mee/shared/icons/MingcuteSendPlaneLine'
+// import { MingcuteSendPlaneLine } from '@/shared/icons/MingcuteSendPlaneLine'
 
 interface IChat {}
 
@@ -28,7 +29,7 @@ export const Chat: FC<IChat> = ({}) => {
 
   return (
     <div className="flex size-full h-screen">
-      <h1 className="m-auto">Welcome to Tauri!</h1>
+      <h1 className="m-auto text-red-700">Welcome to Tauri!</h1>
 
       <form className="absolute bottom-0 flex w-full gap-4 p-4 *:min-h-10">
         <Input

@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@mee/*": ["../mee-web/src/*"],
+      "@multi/*": ["../mee-multiplatform/src/*"]
+    }
+  }
+}
