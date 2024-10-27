@@ -8,12 +8,6 @@ importers:
 
   .: {}
 
-  packages/config-tailwind:
-    dependencies:
-      tailwindcss:
-        specifier: ^3.4.14
-        version: 3.4.14
-
   packages/mee-multiplatform:
     dependencies:
       '@tauri-apps/api':
