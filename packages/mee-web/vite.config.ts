@@ -15,5 +15,5 @@ export default defineConfig({
     },
   },
 
-  base: process.env.VITE_BASE_URL || '/',
+  base: process.env.VITE_CLIENT_WEB_BASE_PATH || '/',
 })

@@ -29,8 +29,14 @@ COPY tsconfig.paths.json .
 
 RUN pnpm install
 
+# Adding environment variables
+ARG PORT_FRONTEND
+ARG CLIENT_WEB_BASE_PATH
+ENV VITE_CLIENT_WEB_BASE_PATH=${CLIENT_WEB_BASE_PATH}
+ENV VITE_CLIENT_WEB_PORT=${PORT_FRONTEND}
+
 RUN pnpm run build:web
 
-EXPOSE 3000
+EXPOSE ${PORT_FRONTEND}
 
 CMD ["pnpm", "run", "serve:web"]
