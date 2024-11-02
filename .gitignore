@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .env
-.env.*
 
 # Android
 src-tauri/gen/android/app/arm/*

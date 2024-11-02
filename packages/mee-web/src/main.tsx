@@ -8,8 +8,8 @@ const Main = ({}) => {
   return (
     <>
       <Loading className="m-auto size-64" />
-      <Loading className="m-auto size-32" />
-      <Loading className="m-auto size-16" />
+      {/* <Loading className="m-auto size-32" />
+      <Loading className="m-auto size-16" /> */}
       <Chat />
     </>
   )
