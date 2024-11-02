@@ -22,5 +22,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Sakurasau/mee.git"
+  },
+  "devDependencies": {
+    "prettier-plugin-tailwindcss": "^0.6.6"
   }
 }
