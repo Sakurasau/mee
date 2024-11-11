@@ -16,4 +16,7 @@ export default defineConfig({
   },
 
   base: process.env.VITE_CLIENT_WEB_BASE_PREFIX || '/',
+  server: {
+    port: Number(process.env.VITE_CLIENT_WEB_PORT || 3000),
+  }
 })
