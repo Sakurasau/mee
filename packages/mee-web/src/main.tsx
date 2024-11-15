@@ -1,24 +1,20 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import Loading from '@mee/shared/ui/Loading'
-import { Chat } from '@mee/pages/chat'
 import './app/styles/global.css'
 
-const Main = ({}) => {
-  return (
-    <>
-      <Loading className="m-auto size-64" />
-      {/* <Loading className="m-auto size-32" />
-      <Loading className="m-auto size-16" /> */}
-      <Chat />
-    </>
-  )
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { createRouter, RouterProvider } from '@tanstack/react-router'
+import { routeTree } from './routeTree.gen'
+
+const router = createRouter({ routeTree })
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
 }
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Main />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )
-
-export default Main
