@@ -1,8 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 import type { Config } from 'tailwindcss'
+import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const configTailwind: Omit<Config, 'content'> = {
   theme: {
+    fontFamily: {
+      sans: ['Rubik', ...defaultTheme.fontFamily.sans],
+    },
     extend: {
       keyframes: {
         'loading-spin-1': {
