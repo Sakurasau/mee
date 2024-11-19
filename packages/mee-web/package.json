@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@ant-design/happy-work-theme": "^1.0.0",
+    "@lottiefiles/dotlottie-react": "^0.9.3",
     "@tanstack/react-router": "^1.81.10",
     "antd": "^5.20.4",
     "clsx": "^2.1.1",
