@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom/client'
 import { createRouter, RouterProvider } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 import { ConfigProvider } from 'antd'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const router = createRouter({ routeTree })
+const queryClient = new QueryClient()
 
 declare module '@tanstack/react-router' {
   interface Register {
@@ -22,7 +24,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           fontFamily: 'Rubik',
         },
       }}>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ConfigProvider>
   </React.StrictMode>,
 )
