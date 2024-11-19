@@ -28,6 +28,7 @@ export const configTailwind: Omit<Config, 'content'> = {
     },
   },
   plugins: [require('tailwindcss-animated')],
+  mode: 'jit',
 }
 
 export default {
