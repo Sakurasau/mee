@@ -7,7 +7,7 @@ export interface IOAuthUser {
   updated_at: string
   email: string
   last_name: string
-  first_name: string
+  first_ame: string
   avatar_url: string
 }
 
@@ -15,6 +15,7 @@ interface IAuthState {
   user: IOAuthUser | null
   setUser: (data: IOAuthUser) => void
   removeUser: () => void
+  isLoggedIn: () => boolean
 }
 
 export const useAuthState = create(
@@ -26,6 +27,9 @@ export const useAuthState = create(
       },
       removeUser: () => {
         set({ user: null })
+      },
+      isLoggedIn: () => {
+        return get().user !== null
       },
     }),
     {
