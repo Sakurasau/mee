@@ -1,7 +1,8 @@
 import { forwardRef, ReactNode, useEffect, useState } from 'react'
 import { AvatarProps as AvatarUIProps, Avatar as AvatarUI } from 'antd'
 import { initials } from '@mee/shared/lib/user'
-import { getColorByName } from '@mee/shared/lib/colors'
+import { getGradientByName } from '@mee/shared/lib/colors'
+import { cn } from '@mee/shared/lib/cn'
 
 interface AvatarProps extends AvatarUIProps {
   id?: string
@@ -14,6 +15,9 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
     const [isLoading, setIsLoading] = useState(true)
     const [loadedImgSrc, setLoadedImgSrc] = useState<string | undefined>(
       undefined,
+    )
+    const [primaryGradient, secondaryGradient] = getGradientByName(
+      id ?? title ?? 'no',
     )
 
     useEffect(() => {
@@ -41,7 +45,10 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
             src
           )
         }
-        style={id ? { backgroundColor: getColorByName(id) } : {}}
+        style={{
+          background: `linear-gradient(to top right, ${primaryGradient}, ${secondaryGradient})`,
+        }}
+        className={cn('border-0', className)}
         {...props}>
         {initials(title)}
       </AvatarUI>
