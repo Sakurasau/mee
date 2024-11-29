@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@mee/*": ["../mee-web/src/*"],
+      "@multi/*": ["../mee-multiplatform/src/*"],
+      "@config/env/*": ["../config-env/src/*"],
+      // "@config/env": ["../config-env/src/index.ts"],
+      
+    }
+  }
+}
