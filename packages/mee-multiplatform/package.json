@@ -1,5 +1,5 @@
 {
-  "name": "mee-multiplatform",
+  "name": "@mee/multiplatform",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,9 +22,9 @@
   },
   "keywords": [],
   "dependencies": {
+    "@mee/web": "workspace:^",
     "@tauri-apps/api": "^2.0.3",
     "@tauri-apps/plugin-shell": "^2.0.1",
-    "mee-web": "workspace:^",
     "postcss": "^8.4.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
