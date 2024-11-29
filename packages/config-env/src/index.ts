@@ -1,8 +1,10 @@
 import { z } from 'zod'
 import dotenv from 'dotenv'
 import { schema } from './env.schema'
+import { resolve } from 'path'
 
-dotenv.config()
+// dotenv.config()
+dotenv.config({ path: resolve(__dirname, '../../.env') })
 
 const result = schema.safeParse(process.env)
 

@@ -1,10 +1,6 @@
 {
+  "extends": "@config/tsconfig/tsconfig.app.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ESNext",
-    "strict": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
     "outDir": "dist",
     "rootDir": "src"
   },
