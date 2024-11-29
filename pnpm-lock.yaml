@@ -12,6 +12,28 @@ importers:
         specifier: ^0.6.6
         version: 0.6.8(prettier@3.3.3)
 
+  packages/config-env:
+    dependencies:
+      dotenv:
+        specifier: ^16.4.5
+        version: 16.4.5
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
+    devDependencies:
+      '@types/node':
+        specifier: ^22.5.4
+        version: 22.8.1
+      typescript:
+        specifier: ^5.7.2
+        version: 5.7.2
+
+  packages/config-eslint: {}
+
+  packages/config-tailwind: {}
+
+  packages/config-tsconfig: {}
+
   packages/mee-multiplatform:
     dependencies:
       '@tauri-apps/api':
@@ -2752,6 +2774,11 @@ packages:
 
   typescript@5.6.3:
     resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+  typescript@5.7.2:
+    resolution: {integrity: sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -5612,6 +5639,8 @@ snapshots:
       - supports-color
 
   typescript@5.6.3: {}
+
+  typescript@5.7.2: {}
 
   unbox-primitive@1.0.2:
     dependencies:
