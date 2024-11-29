@@ -1,10 +1,11 @@
-import { z } from 'zod'
 import dotenv from 'dotenv'
 import { schema } from './env.schema'
 import { resolve } from 'path'
+import { isProd } from './utils'
 
 // dotenv.config()
-dotenv.config({ path: resolve(__dirname, '../../.env') })
+const fileName = isProd() ? '.env' : '.env.development'
+dotenv.config({ path: resolve(__dirname, `../../${fileName}`) })
 
 const result = schema.safeParse(process.env)
 
@@ -14,3 +15,4 @@ if (!result.success) {
 }
 
 export const env = result.data
+export * from './utils'
