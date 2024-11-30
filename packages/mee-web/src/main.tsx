@@ -7,7 +7,10 @@ import { routeTree } from './routeTree.gen'
 import { ConfigProvider } from 'antd'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-const router = createRouter({ routeTree })
+const router = createRouter({
+  routeTree,
+  basepath: import.meta.env.VITE_CLIENT_WEB_BASE_PREFIX ?? '/',
+})
 const queryClient = new QueryClient()
 
 declare module '@tanstack/react-router' {
