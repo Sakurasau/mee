@@ -1,5 +1,5 @@
 {
-  "name": "mee-multiplatform",
+  "name": "@mee/multiplatform",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -22,21 +22,24 @@
   },
   "keywords": [],
   "dependencies": {
+    "@config/env": "workspace:^",
+    "@mee/web": "workspace:^",
     "@tauri-apps/api": "^2.0.3",
     "@tauri-apps/plugin-shell": "^2.0.1",
-    "mee-web": "workspace:^",
     "postcss": "^8.4.47",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
+    "@config/tsconfig": "workspace:^",
     "@tauri-apps/cli": "^2.0.4",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.2.1",
     "internal-ip": "^7.0.0",
     "typescript": "^5.2.2",
-    "vite": "^5.4.2"
+    "vite": "^5.4.2",
+    "vite-tsconfig-paths": "^5.1.3"
   }
 }

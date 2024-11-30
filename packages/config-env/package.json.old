@@ -1,0 +1,29 @@
+{
+  "type": "module",
+  "name": "@config/env",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@config/tsconfig": "workspace:^",
+    "@types/node": "^22.5.4",
+    "typescript": "^5.7.2"
+  }
+}

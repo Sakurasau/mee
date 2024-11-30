@@ -16,7 +16,7 @@ declare module '@tanstack/react-router' {
   }
 }
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const App = () => (
   <React.StrictMode>
     <ConfigProvider
       theme={{
@@ -28,5 +28,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <RouterProvider router={router} />
       </QueryClientProvider>
     </ConfigProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
+
+ReactDOM.createRoot(document.getElementById('root')!).render(<App />)
+
+export default App

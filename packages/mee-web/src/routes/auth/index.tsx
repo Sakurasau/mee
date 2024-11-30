@@ -9,8 +9,7 @@ export const Route = createFileRoute('/auth/')({
 
 function RouteComponent() {
   const onGoogleLogin = () => {
-    // window.location.href = process.env.VITE_URL_SERVER_AUTH_GOOGLE!
-    window.location.href = `http://localhost:5000/auth/google/login`
+    window.location.href = import.meta.env.VITE_URL_SERVER_AUTH_GOOGLE
   }
 
   return (

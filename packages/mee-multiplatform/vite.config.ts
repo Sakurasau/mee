@@ -1,20 +1,15 @@
 import { defineConfig } from 'vite'
-import path from 'path'
+import tsconfigPaths from 'vite-tsconfig-paths'
 import react from '@vitejs/plugin-react'
 import { internalIpV4 } from 'internal-ip'
+import { env } from '../config-env/src/index'
 
 // @ts-expect-error process is a nodejs global
-const mobile = !!/android|ios/.exec(process.env.TAURI_ENV_PLATFORM)
+const mobile = !!/android|ios/.exec(env.TAURI_ENV_PLATFORM)
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
-  plugins: [react()],
-  resolve: {
-    alias: {
-      '@mee': path.resolve(__dirname, '../mee-web/src'),
-      '@multi': path.resolve(__dirname, '../mee-multiplatform/src'),
-    },
-  },
+  plugins: [react(), tsconfigPaths()],
 
   // Vite options tailored for Tauri development and only applied in `tauri dev` or `tauri build`
   //

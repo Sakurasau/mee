@@ -9,7 +9,7 @@ export const Route = createFileRoute('/_authed/_leftbar/')({
 
 function RouteComponent() {
   return (
-    <div className="mx-4 my-6 flex h-full flex-col items-center justify-center gap-2">
+    <div className="mx-4 flex h-screen flex-col items-center justify-center gap-2">
       <motion.div
         className="w-96"
         initial={{ opacity: 0 }}
@@ -22,7 +22,9 @@ function RouteComponent() {
           speed={0.7}
         />
       </motion.div>
-      <H4 className="font-normal text-center">Select a chat to write a message</H4>
+      <H4 className="text-center font-normal">
+        Select a chat to write a message
+      </H4>
     </div>
   )
 }
