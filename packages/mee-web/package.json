@@ -9,6 +9,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "serve": "serve -s dist -p $VITE_CLIENT_WEB_PORT",
+    "prod-test": "cross-env NODE_ENV=production vite",
+    "prod-serve": "cross-env NODE_ENV=production serve",
     "lint": "eslint ./src",
     "lint:debug": "eslint ./src --debug",
     "lint:fix": "eslint ./src --fix",
@@ -17,6 +19,7 @@
   },
   "dependencies": {
     "@ant-design/happy-work-theme": "^1.0.0",
+    "@config/env": "workspace:^",
     "@lottiefiles/dotlottie-react": "^0.9.3",
     "@tanstack/react-query": "^5.60.6",
     "@tanstack/react-router": "^1.81.10",

@@ -1,5 +1,5 @@
-import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { isDev } from '@mee/shared/lib/env'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { lazy, Suspense } from 'react'
 
 export const Route = createRootRoute({
