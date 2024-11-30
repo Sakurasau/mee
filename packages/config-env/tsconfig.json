@@ -1,8 +1,8 @@
 {
-  "extends": "@config/tsconfig/tsconfig.app.json",
+  "extends": "@config/tsconfig/tsconfig.lib.json",
   "compilerOptions": {
-    "outDir": "dist",
-    "rootDir": "src"
+    "outDir": "./dist",
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }

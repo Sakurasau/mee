@@ -5,7 +5,7 @@ import { isProd } from './utils'
 
 // dotenv.config()
 const fileName = isProd() ? '.env' : '.env.development'
-dotenv.config({ path: resolve(__dirname, `../../${fileName}`) })
+dotenv.config({ path: resolve(__dirname, `../../../${fileName}`) })
 
 const result = schema.safeParse(process.env)
 
@@ -16,3 +16,4 @@ if (!result.success) {
 
 export const env = result.data
 export * from './utils'
+export * from './env.schema'
