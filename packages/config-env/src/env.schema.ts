@@ -6,7 +6,7 @@ export const schema = z.object({
   VITE_URL_SERVER_AUTH_GOOGLE: z.string(),
   VITE_URL_SERVER: z.string(),
 
-  TAURI_ENV_PLATFORM: z.string().optional(),
+  TAURI_DEV_HOST: z.string().optional(),
 })
 
 export type EnvSchemaType = z.infer<typeof schema>

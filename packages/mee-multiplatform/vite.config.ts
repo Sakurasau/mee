@@ -1,11 +1,10 @@
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
 import react from '@vitejs/plugin-react'
-import { internalIpV4 } from 'internal-ip'
 import { env } from '../config-env/src/index'
 
 // @ts-expect-error process is a nodejs global
-const mobile = !!/android|ios/.exec(env.TAURI_ENV_PLATFORM)
+const host = env.TAURI_DEV_HOST
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -19,11 +18,11 @@ export default defineConfig(async () => ({
   server: {
     port: 1420,
     strictPort: true,
-    host: mobile ? '0.0.0.0' : false,
-    hmr: mobile
+    host: host || false,
+    hmr: host
       ? {
           protocol: 'ws',
-          host: await internalIpV4(),
+          host,
           port: 1421,
         }
       : undefined,
