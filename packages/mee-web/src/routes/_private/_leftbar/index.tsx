@@ -17,7 +17,7 @@ function RouteComponent() {
         transition={{ duration: 0.5 }}
       >
         <DotLottieReact
-          src="src/shared/lotties/Animation - 1732046792292.lottie"
+          src="https://lottie.host/dd40fb42-0efa-4d59-a160-7750e8c0a605/c6WJW95xtB.lottie"
           autoplay
           segment={[90, 260]}
           speed={0.7}

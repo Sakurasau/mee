@@ -17,7 +17,7 @@ function RouteComponent() {
       <H3 className="font-normal">Start with something beautiful</H3>
       <div className="w-96">
         <DotLottieReact
-          src="src/shared/lotties/Animation - 1732030421671.lottie"
+          src="https://lottie.host/5a17188b-8a4d-46f8-a7e5-8698576daf36/d8AmQBv6ad.lottie"
           loop
           autoplay
         />
