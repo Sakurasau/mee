@@ -3,7 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { H4 } from '@mee/shared/ui/Typography'
 import { motion } from 'framer-motion'
 
-export const Route = createFileRoute('/_authed/_leftbar/')({
+export const Route = createFileRoute('/_private/_leftbar/')({
   component: RouteComponent,
 })
 
@@ -14,7 +14,8 @@ function RouteComponent() {
         className="w-96"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}>
+        transition={{ duration: 0.5 }}
+      >
         <DotLottieReact
           src="src/shared/lotties/Animation - 1732046792292.lottie"
           autoplay

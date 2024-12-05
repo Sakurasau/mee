@@ -3,7 +3,7 @@ import { useAuthState } from '@mee/entities/auth'
 
 const basePrefix = import.meta.env.VITE_CLIENT_WEB_BASE_PREFIX || ''
 
-export const Route = createFileRoute('/_authed')({
+export const Route = createFileRoute('/_private')({
   beforeLoad: async () => {
     if (!useAuthState.getState().isLoggedIn()) {
       throw redirect({

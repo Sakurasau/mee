@@ -11,17 +11,17 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as AuthedImport } from './routes/_authed'
+import { Route as PrivateImport } from './routes/_private'
 import { Route as AuthIndexImport } from './routes/auth/index'
 import { Route as AuthSuccessImport } from './routes/auth/success'
-import { Route as AuthedLeftbarImport } from './routes/_authed/_leftbar'
-import { Route as AuthedLeftbarIndexImport } from './routes/_authed/_leftbar/index'
-import { Route as AuthedLeftbarChatIdImport } from './routes/_authed/_leftbar/$chatId'
+import { Route as PrivateLeftbarImport } from './routes/_private/_leftbar'
+import { Route as PrivateLeftbarIndexImport } from './routes/_private/_leftbar/index'
+import { Route as PrivateLeftbarChatIdImport } from './routes/_private/_leftbar/$chatId'
 
 // Create/Update Routes
 
-const AuthedRoute = AuthedImport.update({
-  id: '/_authed',
+const PrivateRoute = PrivateImport.update({
+  id: '/_private',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -37,40 +37,40 @@ const AuthSuccessRoute = AuthSuccessImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthedLeftbarRoute = AuthedLeftbarImport.update({
+const PrivateLeftbarRoute = PrivateLeftbarImport.update({
   id: '/_leftbar',
-  getParentRoute: () => AuthedRoute,
+  getParentRoute: () => PrivateRoute,
 } as any)
 
-const AuthedLeftbarIndexRoute = AuthedLeftbarIndexImport.update({
+const PrivateLeftbarIndexRoute = PrivateLeftbarIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => AuthedLeftbarRoute,
+  getParentRoute: () => PrivateLeftbarRoute,
 } as any)
 
-const AuthedLeftbarChatIdRoute = AuthedLeftbarChatIdImport.update({
+const PrivateLeftbarChatIdRoute = PrivateLeftbarChatIdImport.update({
   id: '/$chatId',
   path: '/$chatId',
-  getParentRoute: () => AuthedLeftbarRoute,
+  getParentRoute: () => PrivateLeftbarRoute,
 } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_authed': {
-      id: '/_authed'
+    '/_private': {
+      id: '/_private'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof AuthedImport
+      preLoaderRoute: typeof PrivateImport
       parentRoute: typeof rootRoute
     }
-    '/_authed/_leftbar': {
-      id: '/_authed/_leftbar'
+    '/_private/_leftbar': {
+      id: '/_private/_leftbar'
       path: ''
       fullPath: ''
-      preLoaderRoute: typeof AuthedLeftbarImport
-      parentRoute: typeof AuthedImport
+      preLoaderRoute: typeof PrivateLeftbarImport
+      parentRoute: typeof PrivateImport
     }
     '/auth/success': {
       id: '/auth/success'
@@ -86,74 +86,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthIndexImport
       parentRoute: typeof rootRoute
     }
-    '/_authed/_leftbar/$chatId': {
-      id: '/_authed/_leftbar/$chatId'
+    '/_private/_leftbar/$chatId': {
+      id: '/_private/_leftbar/$chatId'
       path: '/$chatId'
       fullPath: '/$chatId'
-      preLoaderRoute: typeof AuthedLeftbarChatIdImport
-      parentRoute: typeof AuthedLeftbarImport
+      preLoaderRoute: typeof PrivateLeftbarChatIdImport
+      parentRoute: typeof PrivateLeftbarImport
     }
-    '/_authed/_leftbar/': {
-      id: '/_authed/_leftbar/'
+    '/_private/_leftbar/': {
+      id: '/_private/_leftbar/'
       path: '/'
       fullPath: '/'
-      preLoaderRoute: typeof AuthedLeftbarIndexImport
-      parentRoute: typeof AuthedLeftbarImport
+      preLoaderRoute: typeof PrivateLeftbarIndexImport
+      parentRoute: typeof PrivateLeftbarImport
     }
   }
 }
 
 // Create and export the route tree
 
-interface AuthedLeftbarRouteChildren {
-  AuthedLeftbarChatIdRoute: typeof AuthedLeftbarChatIdRoute
-  AuthedLeftbarIndexRoute: typeof AuthedLeftbarIndexRoute
+interface PrivateLeftbarRouteChildren {
+  PrivateLeftbarChatIdRoute: typeof PrivateLeftbarChatIdRoute
+  PrivateLeftbarIndexRoute: typeof PrivateLeftbarIndexRoute
 }
 
-const AuthedLeftbarRouteChildren: AuthedLeftbarRouteChildren = {
-  AuthedLeftbarChatIdRoute: AuthedLeftbarChatIdRoute,
-  AuthedLeftbarIndexRoute: AuthedLeftbarIndexRoute,
+const PrivateLeftbarRouteChildren: PrivateLeftbarRouteChildren = {
+  PrivateLeftbarChatIdRoute: PrivateLeftbarChatIdRoute,
+  PrivateLeftbarIndexRoute: PrivateLeftbarIndexRoute,
 }
 
-const AuthedLeftbarRouteWithChildren = AuthedLeftbarRoute._addFileChildren(
-  AuthedLeftbarRouteChildren,
+const PrivateLeftbarRouteWithChildren = PrivateLeftbarRoute._addFileChildren(
+  PrivateLeftbarRouteChildren,
 )
 
-interface AuthedRouteChildren {
-  AuthedLeftbarRoute: typeof AuthedLeftbarRouteWithChildren
+interface PrivateRouteChildren {
+  PrivateLeftbarRoute: typeof PrivateLeftbarRouteWithChildren
 }
 
-const AuthedRouteChildren: AuthedRouteChildren = {
-  AuthedLeftbarRoute: AuthedLeftbarRouteWithChildren,
+const PrivateRouteChildren: PrivateRouteChildren = {
+  PrivateLeftbarRoute: PrivateLeftbarRouteWithChildren,
 }
 
-const AuthedRouteWithChildren =
-  AuthedRoute._addFileChildren(AuthedRouteChildren)
+const PrivateRouteWithChildren =
+  PrivateRoute._addFileChildren(PrivateRouteChildren)
 
 export interface FileRoutesByFullPath {
-  '': typeof AuthedLeftbarRouteWithChildren
+  '': typeof PrivateLeftbarRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth': typeof AuthIndexRoute
-  '/$chatId': typeof AuthedLeftbarChatIdRoute
-  '/': typeof AuthedLeftbarIndexRoute
+  '/$chatId': typeof PrivateLeftbarChatIdRoute
+  '/': typeof PrivateLeftbarIndexRoute
 }
 
 export interface FileRoutesByTo {
-  '': typeof AuthedRouteWithChildren
+  '': typeof PrivateRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth': typeof AuthIndexRoute
-  '/$chatId': typeof AuthedLeftbarChatIdRoute
-  '/': typeof AuthedLeftbarIndexRoute
+  '/$chatId': typeof PrivateLeftbarChatIdRoute
+  '/': typeof PrivateLeftbarIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
-  '/_authed': typeof AuthedRouteWithChildren
-  '/_authed/_leftbar': typeof AuthedLeftbarRouteWithChildren
+  '/_private': typeof PrivateRouteWithChildren
+  '/_private/_leftbar': typeof PrivateLeftbarRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth/': typeof AuthIndexRoute
-  '/_authed/_leftbar/$chatId': typeof AuthedLeftbarChatIdRoute
-  '/_authed/_leftbar/': typeof AuthedLeftbarIndexRoute
+  '/_private/_leftbar/$chatId': typeof PrivateLeftbarChatIdRoute
+  '/_private/_leftbar/': typeof PrivateLeftbarIndexRoute
 }
 
 export interface FileRouteTypes {
@@ -163,23 +163,23 @@ export interface FileRouteTypes {
   to: '' | '/auth/success' | '/auth' | '/$chatId' | '/'
   id:
     | '__root__'
-    | '/_authed'
-    | '/_authed/_leftbar'
+    | '/_private'
+    | '/_private/_leftbar'
     | '/auth/success'
     | '/auth/'
-    | '/_authed/_leftbar/$chatId'
-    | '/_authed/_leftbar/'
+    | '/_private/_leftbar/$chatId'
+    | '/_private/_leftbar/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
-  AuthedRoute: typeof AuthedRouteWithChildren
+  PrivateRoute: typeof PrivateRouteWithChildren
   AuthSuccessRoute: typeof AuthSuccessRoute
   AuthIndexRoute: typeof AuthIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  AuthedRoute: AuthedRouteWithChildren,
+  PrivateRoute: PrivateRouteWithChildren,
   AuthSuccessRoute: AuthSuccessRoute,
   AuthIndexRoute: AuthIndexRoute,
 }
@@ -194,23 +194,23 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_authed",
+        "/_private",
         "/auth/success",
         "/auth/"
       ]
     },
-    "/_authed": {
-      "filePath": "_authed.tsx",
+    "/_private": {
+      "filePath": "_private.tsx",
       "children": [
-        "/_authed/_leftbar"
+        "/_private/_leftbar"
       ]
     },
-    "/_authed/_leftbar": {
-      "filePath": "_authed/_leftbar.tsx",
-      "parent": "/_authed",
+    "/_private/_leftbar": {
+      "filePath": "_private/_leftbar.tsx",
+      "parent": "/_private",
       "children": [
-        "/_authed/_leftbar/$chatId",
-        "/_authed/_leftbar/"
+        "/_private/_leftbar/$chatId",
+        "/_private/_leftbar/"
       ]
     },
     "/auth/success": {
@@ -219,13 +219,13 @@ export const routeTree = rootRoute
     "/auth/": {
       "filePath": "auth/index.tsx"
     },
-    "/_authed/_leftbar/$chatId": {
-      "filePath": "_authed/_leftbar/$chatId.tsx",
-      "parent": "/_authed/_leftbar"
+    "/_private/_leftbar/$chatId": {
+      "filePath": "_private/_leftbar/$chatId.tsx",
+      "parent": "/_private/_leftbar"
     },
-    "/_authed/_leftbar/": {
-      "filePath": "_authed/_leftbar/index.tsx",
-      "parent": "/_authed/_leftbar"
+    "/_private/_leftbar/": {
+      "filePath": "_private/_leftbar/index.tsx",
+      "parent": "/_private/_leftbar"
     }
   }
 }

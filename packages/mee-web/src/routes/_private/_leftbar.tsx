@@ -4,7 +4,7 @@ import { getChats, getRecommendationsChats } from '@mee/shared/api/chat'
 import Avatar from '@mee/shared/ui/Avatar'
 import { useEffect, useState } from 'react'
 
-export const Route = createFileRoute('/_authed/_leftbar')({
+export const Route = createFileRoute('/_private/_leftbar')({
   component: LayoutComponent,
 })
 
@@ -30,17 +30,18 @@ function LayoutComponent() {
         title={chat.profile.display_name}
         className="flex-none"
       />
-      <p className="truncate">{chat.profile.display_name}</p>
+      <div>
+        <p className="truncate">{chat.profile.display_name}</p>
+        <p className="truncate text-sm">@{chat.profile.username}</p>
+      </div>
     </div>
   )
 
   const ContentLeftBar = () => (
     <div>
-      <div className="flex gap-2">
-        {chats.map((chat) => (
-          <Chat key={chat.id} chat={chat} />
-        ))}
-      </div>
+      {chats.map((chat) => (
+        <Chat key={chat.id} chat={chat} />
+      ))}
       <Divider orientation="left" plain>
         Recommends
       </Divider>
