@@ -11,15 +11,15 @@ export interface IOAuthUser {
   avatar_url: string
 }
 
-interface IAuthState {
+interface IAuthStateProps {
   user: IOAuthUser | null
   setUser: (data: IOAuthUser) => void
   removeUser: () => void
   isLoggedIn: () => boolean
 }
 
-export const useAuthState = create(
-  persist<IAuthState>(
+export const useAuthStore = create(
+  persist<IAuthStateProps>(
     (set, get) => ({
       user: null,
       setUser: (user: IOAuthUser) => {

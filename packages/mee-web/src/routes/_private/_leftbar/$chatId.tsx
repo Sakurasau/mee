@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-// import { useAuthState } from '@mee/entities/auth'
+// import { useAuthStore } from '@mee/entities/auth'
 // import { fullName } from '@mee/shared/lib/user'
 // import Avatar from '@mee/shared/ui/Avatar'
 
@@ -8,7 +8,7 @@ export const Route = createFileRoute('/_private/_leftbar/$chatId')({
 })
 
 function RouteComponent() {
-  // const { user } = useAuthState()
+  // const { user } = useAuthStore()
 
   return (
     <></>

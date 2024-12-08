@@ -2,14 +2,22 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Button } from 'antd'
 import { H3 } from '@mee/shared/ui/Typography'
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
+import { useEnvironmentStore } from '@mee/entities/environment'
 
 export const Route = createFileRoute('/auth/')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  const onGoogleLogin = () => {
-    window.location.href = import.meta.env.VITE_URL_SERVER_AUTH_GOOGLE
+  const isTauri = useEnvironmentStore((state) => state.isTauri)
+  const startOAuthServer = useEnvironmentStore(
+    (state) => state.oauth.startOAuthFlow,
+  )
+
+  const onGoogleLogin = async () => {
+    isTauri && startOAuthServer
+      ? await startOAuthServer(import.meta.env.VITE_URL_SERVER_AUTH_GOOGLE)
+      : (window.location.href = `${import.meta.env.VITE_URL_SERVER_AUTH_GOOGLE}`)
   }
 
   return (
