@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "license": "GPL-3.0",
-  "main": "src/index.tsx",
   "scripts": {
     "dev": "vite",
     "dev:w": "tauri dev",
