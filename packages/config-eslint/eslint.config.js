@@ -34,12 +34,16 @@ export default tseslint.config([
   // other ...
   prettier,
   {
-    // settings: {
-    //   tailwindcss: {
-    //     callees: ['className', 'clsx', 'cls', 'cva', 'cn'],
-    //   },
-    // },
+    settings: {
+      tailwindcss: {
+        callees: ['animate-none', 'animate-spin', 'animate-ping', 'animate-pulse', 'animate-bounce'],
+      },
+    },
     rules: {
+      'jsdoc/require-jsdoc': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+
       'import/order': [
         'warn',
         {
