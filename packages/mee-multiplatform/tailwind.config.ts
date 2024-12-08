@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-import { configTailwind } from '@mee/web/tailwind.config'
+import { configTailwind } from '@config/tailwind/tailwind.config'
 
 export default {
-  content: ['../**/src/**/*.{ts,tsx}'],
+  content: ['./index.html', './src/**/*.{ts,tsx}'],
   presets: [configTailwind],
 }

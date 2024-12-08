@@ -31,6 +31,15 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
+  packages/config-tailwind:
+    dependencies:
+      tailwindcss:
+        specifier: ^3.4.14
+        version: 3.4.14
+      tailwindcss-animated:
+        specifier: ^1.1.2
+        version: 1.1.2(tailwindcss@3.4.14)
+
   packages/config-tsconfig: {}
 
   packages/mee-multiplatform:
@@ -38,6 +47,9 @@ importers:
       '@config/env':
         specifier: workspace:^
         version: link:../config-env
+      '@config/tailwind':
+        specifier: workspace:^
+        version: link:../config-tailwind
       '@fabianlars/tauri-plugin-oauth':
         specifier: '2'
         version: 2.0.0
@@ -99,6 +111,9 @@ importers:
       '@config/env':
         specifier: workspace:^
         version: link:../config-env
+      '@config/tailwind':
+        specifier: workspace:^
+        version: link:../config-tailwind
       '@lottiefiles/dotlottie-react':
         specifier: ^0.9.3
         version: 0.9.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
