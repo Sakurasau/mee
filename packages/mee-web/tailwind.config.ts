@@ -1,5 +1,3 @@
-/** @type {import('tailwindcss').Config} */
-
 import { configTailwind } from '@config/tailwind/tailwind.config'
 
 export default {

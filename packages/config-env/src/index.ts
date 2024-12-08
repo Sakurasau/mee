@@ -1,6 +1,8 @@
-import dotenv from 'dotenv'
-import { schema } from './env.schema'
 import { resolve } from 'path'
+
+import dotenv from 'dotenv'
+
+import { schema } from './env.schema'
 import { isProd } from './utils'
 
 // dotenv.config()

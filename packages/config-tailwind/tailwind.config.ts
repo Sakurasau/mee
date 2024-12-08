@@ -1,5 +1,5 @@
-/** @type {import('tailwindcss').Config} */
 import type { Config } from 'tailwindcss'
+
 import defaultTheme from 'tailwindcss/defaultTheme'
 
 export const configTailwind: Omit<Config, 'content'> = {
@@ -31,6 +31,6 @@ export const configTailwind: Omit<Config, 'content'> = {
       },
     },
   },
-  plugins: [require('tailwindcss-animated')],
+  plugins: [import('tailwindcss-animated')],
   mode: 'jit',
 }

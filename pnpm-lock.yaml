@@ -7,20 +7,16 @@ settings:
 importers:
 
   .:
-    dependencies:
+    devDependencies:
       '@config/eslint':
         specifier: workspace:^
         version: link:packages/config-eslint
-    devDependencies:
       prettier-plugin-tailwindcss:
         specifier: ^0.6.6
         version: 0.6.8(prettier@3.3.3)
 
   packages/config-env:
     dependencies:
-      '@config/eslint':
-        specifier: workspace:^
-        version: link:../config-eslint
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -28,6 +24,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@config/eslint':
+        specifier: workspace:^
+        version: link:../config-eslint
       '@config/tsconfig':
         specifier: workspace:^
         version: link:../config-tsconfig
@@ -43,6 +42,9 @@ importers:
       '@eslint/js':
         specifier: ^9.16.0
         version: 9.16.0
+      '@types/eslint-plugin-tailwindcss':
+        specifier: ^3.17.0
+        version: 3.17.0
       '@typescript-eslint/parser':
         specifier: ^8.17.0
         version: 8.17.0(eslint@9.16.0(jiti@1.21.6))(typescript@5.7.2)
@@ -79,17 +81,22 @@ importers:
       tailwindcss-animated:
         specifier: ^1.1.2
         version: 1.1.2(tailwindcss@3.4.14)
+    devDependencies:
+      '@config/eslint':
+        specifier: workspace:^
+        version: link:../config-eslint
 
-  packages/config-tsconfig: {}
+  packages/config-tsconfig:
+    devDependencies:
+      '@config/eslint':
+        specifier: workspace:^
+        version: link:../config-eslint
 
   packages/mee-multiplatform:
     dependencies:
       '@config/env':
         specifier: workspace:^
         version: link:../config-env
-      '@config/eslint':
-        specifier: workspace:^
-        version: link:../config-eslint
       '@config/tailwind':
         specifier: workspace:^
         version: link:../config-tailwind
@@ -118,6 +125,9 @@ importers:
         specifier: ^3.4.14
         version: 3.4.14
     devDependencies:
+      '@config/eslint':
+        specifier: workspace:^
+        version: link:../config-eslint
       '@config/tsconfig':
         specifier: workspace:^
         version: link:../config-tsconfig
@@ -154,9 +164,6 @@ importers:
       '@config/env':
         specifier: workspace:^
         version: link:../config-env
-      '@config/eslint':
-        specifier: workspace:^
-        version: link:../config-eslint
       '@config/tailwind':
         specifier: workspace:^
         version: link:../config-tailwind
@@ -212,6 +219,9 @@ importers:
         specifier: ^5.0.1
         version: 5.0.1(@types/react@18.3.12)(immer@10.1.1)(react@18.3.1)(use-sync-external-store@1.2.2(react@18.3.1))
     devDependencies:
+      '@config/eslint':
+        specifier: workspace:^
+        version: link:../config-eslint
       '@config/tsconfig':
         specifier: workspace:^
         version: link:../config-tsconfig
@@ -1179,6 +1189,12 @@ packages:
 
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
+
+  '@types/eslint-plugin-tailwindcss@3.17.0':
+    resolution: {integrity: sha512-ucQGf2YIdTcndYcxRU3UdZgmhUHsOlbIF4BaRtl0op+7k2JmqM2i3aXZ6XIcfZgVq1ZKov7VM5c/BR81ukmkyg==}
+
+  '@types/eslint@9.6.1':
+    resolution: {integrity: sha512-FXx2pKgId/WyYo2jXw63kk7/+TY7u7AziEJxJAnSFzHlqTAS3Ync6SvgYAN/k4/PQpnnVuzoMuVnByKK2qp0ag==}
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
@@ -3889,6 +3905,15 @@ snapshots:
   '@types/babel__traverse@7.20.6':
     dependencies:
       '@babel/types': 7.26.0
+
+  '@types/eslint-plugin-tailwindcss@3.17.0':
+    dependencies:
+      '@types/eslint': 9.6.1
+
+  '@types/eslint@9.6.1':
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/json-schema': 7.0.15
 
   '@types/estree@1.0.6': {}
 

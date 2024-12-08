@@ -45,9 +45,9 @@ export function hashCodeInRange(str: string, min: number, max: number): number {
 
 export const getColorByName = (
   anyName: string,
-  range: number = 360,
-  saturation: number = 70,
-  lightness: number = 50,
+  range = 360,
+  saturation = 70,
+  lightness = 50,
 ) =>
   generateColors(range, saturation, lightness)[
     hashCodeInRange(anyName, 0, range - 1)
@@ -55,10 +55,10 @@ export const getColorByName = (
 
 export const getGradientByName = (
   anyName: string,
-  range: number = 360,
-  hueDifference: number = 30,
-  saturation: number = 70,
-  lightness: number = 50,
+  range = 360,
+  hueDifference = 30,
+  saturation = 70,
+  lightness = 50,
 ) => {
   const maxValueRange = range - 1
   const baseHue = hashCodeInRange(anyName, 0, maxValueRange)

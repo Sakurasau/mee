@@ -24,9 +24,7 @@
     "url": "git+https://github.com/Sakurasau/mee.git"
   },
   "devDependencies": {
+    "@config/eslint": "workspace:^",
     "prettier-plugin-tailwindcss": "^0.6.6"
-  },
-  "dependencies": {
-    "@config/eslint": "workspace:^"
   }
 }

@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
+
 import { IOAuthConfig } from './configs/oauth-config.type'
 
 export type IInitialState = Omit<IEnvironmentStateProps, 'setInitialState'>

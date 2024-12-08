@@ -1,8 +1,8 @@
-import { forwardRef, ReactNode, useEffect, useState } from 'react'
-import { AvatarProps as AvatarUIProps, Avatar as AvatarUI } from 'antd'
-import { initials } from '@mee/shared/lib/user'
-import { getGradientByName } from '@mee/shared/lib/colors'
 import { cn } from '@mee/shared/lib/cn'
+import { getGradientByName } from '@mee/shared/lib/colors'
+import { initials } from '@mee/shared/lib/user'
+import { AvatarProps as AvatarUIProps, Avatar as AvatarUI } from 'antd'
+import { forwardRef, ReactNode, useEffect, useState } from 'react'
 
 interface AvatarProps extends AvatarUIProps {
   id?: string

@@ -7,11 +7,11 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@config/eslint": "workspace:^",
     "dotenv": "^16.4.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@config/eslint": "workspace:^",
     "@config/tsconfig": "workspace:^",
     "@types/node": "^22.5.4",
     "typescript": "^5.7.2"

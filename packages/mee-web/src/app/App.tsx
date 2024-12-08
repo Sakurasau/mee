@@ -1,11 +1,11 @@
 import './styles/global.css'
 
-import React from 'react'
-import { createRouter, RouterProvider } from '@tanstack/react-router'
-import { ConfigProvider } from 'antd'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { IInitialState, useEnvironmentStore } from '@mee/entities/environment'
 import { routeTree } from '@mee/routeTree.gen'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { createRouter, RouterProvider } from '@tanstack/react-router'
+import { ConfigProvider } from 'antd'
+import { StrictMode } from 'react';
 
 const router = createRouter({
   routeTree,
@@ -20,7 +20,7 @@ declare module '@tanstack/react-router' {
 }
 
 const App = () => (
-  <React.StrictMode>
+  <StrictMode>
     <ConfigProvider
       theme={{
         token: {
@@ -31,7 +31,7 @@ const App = () => (
         <RouterProvider router={router} />
       </QueryClientProvider>
     </ConfigProvider>
-  </React.StrictMode>
+  </StrictMode>
 )
 
 const AppWrapper = ({ environments }: { environments?: IInitialState }) => {

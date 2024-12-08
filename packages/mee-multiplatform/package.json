@@ -22,7 +22,6 @@
   "keywords": [],
   "dependencies": {
     "@config/env": "workspace:^",
-    "@config/eslint": "workspace:^",
     "@config/tailwind": "workspace:^",
     "@fabianlars/tauri-plugin-oauth": "2",
     "@mee/web": "workspace:^",
@@ -34,6 +33,7 @@
     "tailwindcss": "^3.4.14"
   },
   "devDependencies": {
+    "@config/eslint": "workspace:^",
     "@config/tsconfig": "workspace:^",
     "@tauri-apps/cli": "^2.1.0",
     "@types/react": "^18.2.15",

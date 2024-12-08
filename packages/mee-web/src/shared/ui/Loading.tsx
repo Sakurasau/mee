@@ -10,7 +10,7 @@ const Loading: FC<LoadingProps> = ({ className, ...props }) => {
       className={`${className}`}
       {...props}>
       <circle
-        className="origin-center animate-loading animate-alternate"
+        className="animate-alternate animate-loading origin-center"
         cx="400"
         cy="400"
         fill="none"
@@ -21,7 +21,7 @@ const Loading: FC<LoadingProps> = ({ className, ...props }) => {
         strokeLinecap="round"
       />
       <circle
-        className="origin-center animate-loading animate-alternate-reverse"
+        className="animate-alternate-reverse animate-loading origin-center"
         cx="400"
         cy="400"
         fill="none"

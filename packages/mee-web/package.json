@@ -20,7 +20,6 @@
   "dependencies": {
     "@ant-design/happy-work-theme": "^1.0.0",
     "@config/env": "workspace:^",
-    "@config/eslint": "workspace:^",
     "@config/tailwind": "workspace:^",
     "@lottiefiles/dotlottie-react": "^0.9.3",
     "@tanstack/react-query": "^5.60.6",
@@ -41,6 +40,7 @@
     "zustand": "^5.0.1"
   },
   "devDependencies": {
+    "@config/eslint": "workspace:^",
     "@config/tsconfig": "workspace:^",
     "@tanstack/react-query-devtools": "^5.60.6",
     "@tanstack/router-devtools": "^1.81.10",

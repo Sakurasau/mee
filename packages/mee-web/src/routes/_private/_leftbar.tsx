@@ -1,7 +1,7 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router'
-import { Divider, Splitter } from 'antd'
 import { getChats, getRecommendationsChats } from '@mee/shared/api/chat'
 import Avatar from '@mee/shared/ui/Avatar'
+import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { Divider, Splitter } from 'antd'
 import { useEffect, useState } from 'react'
 
 export const Route = createFileRoute('/_private/_leftbar')({
@@ -14,11 +14,11 @@ function LayoutComponent() {
 
   useEffect(() => {
     getChats().then((chats) => {
-      chats.status === 200 && setChats(chats.data)
+      if (chats.status === 200) setChats(chats.data)
       console.log('getChats', chats)
     })
     getRecommendationsChats().then((chats) => {
-      chats.status === 200 && setRecommends(chats.data)
+      if (chats.status === 200) setRecommends(chats.data)
       console.log('getRecommendationsChats', chats)
     })
   }, [])
