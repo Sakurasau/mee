@@ -13,8 +13,8 @@
     "dev:web": "pnpm --filter=@mee/web dev",
     "dev:win": "pnpm --filter=@mee/multiplatform tauri dev",
     "dev:android": "pnpm --filter=@mee/multiplatform tauri android dev",
-    "release:win": "pnpm --filter=@mee/multiplatform node check-branch.cjs && tauri build",
-    "release:android": "pnpm --filter=@mee/multiplatform node check-branch.cjs && tauri android build",
+    "release:win": "pnpm --filter=@mee/multiplatform tauri build",
+    "release:android": "pnpm --filter=@mee/multiplatform tauri android build",
     "serve:web": "pnpm --filter=@mee/web serve",
     "build:web": "pnpm --filter=@mee/web build",
     "build:multiplatform": "pnpm --filter=@mee/multiplatform build"
