@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "main": "src/index.ts",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "gen:local": "swagger-typescript-api -p http://localhost:5000/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output",
+    "gen:prod": "swagger-typescript-api -p https://mee.social/api/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output"
   },
   "dependencies": {
-    "axios": "^1.7.7",
-    "dotenv": "^16.4.5",
-    "zod": "^3.23.8"
+    "axios": "^1.7.7"
   },
   "devDependencies": {
     "@config/eslint": "workspace:^",

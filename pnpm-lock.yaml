@@ -119,12 +119,6 @@ importers:
       axios:
         specifier: ^1.7.7
         version: 1.7.7
-      dotenv:
-        specifier: ^16.4.5
-        version: 16.4.5
-      zod:
-        specifier: ^3.23.8
-        version: 3.23.8
     devDependencies:
       '@config/eslint':
         specifier: workspace:^
