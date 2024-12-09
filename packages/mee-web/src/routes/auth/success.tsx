@@ -1,9 +1,9 @@
+import { IOAuthUser, useAuthStore } from '@mee/entities/auth'
+import { useEnvironmentStore } from '@mee/entities/environment'
 import { createFileRoute } from '@tanstack/react-router'
 import { jwtDecode } from 'jwt-decode'
 import { useEffect } from 'react'
-import { IOAuthUser, useAuthStore } from '@mee/entities/auth'
 import { z } from 'zod'
-import { useEnvironmentStore } from '@mee/entities/environment'
 
 const authSuccessSearchSchema = z.object({
   jwtUser: z.string().optional(),
