@@ -1,7 +1,7 @@
 {
+  "type": "module",
   "name": "@config/eslint",
   "version": "0.0.0",
-  "type": "module",
   "main": "eslint.config.js",
   "devDependencies": {
     "@eslint/js": "^9.16.0",

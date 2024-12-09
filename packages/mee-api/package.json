@@ -1,0 +1,21 @@
+{
+  "type": "module",
+  "name": "@mee/api",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@config/eslint": "workspace:^",
+    "@config/tsconfig": "workspace:^",
+    "@types/node": "^22.5.4",
+    "swagger-typescript-api": "^13.0.23",
+    "typescript": "^5.7.2"
+  }
+}

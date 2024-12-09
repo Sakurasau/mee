@@ -1,7 +1,7 @@
 {
+  "type": "module",
   "name": "@config/tailwind",
   "version": "0.0.0",
-  "type": "module",
   "main": "tailwind.config.ts",
   "dependencies": {
     "tailwindcss": "^3.4.14",

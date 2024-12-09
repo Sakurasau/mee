@@ -1,4 +1,4 @@
-import { getChats, getRecommendationsChats } from '@mee/shared/api/chat'
+import { getChats, getRecommendationsChats } from '@mee/api'
 import Avatar from '@mee/shared/ui/Avatar'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
 import { Divider, Splitter } from 'antd'
@@ -15,11 +15,9 @@ function LayoutComponent() {
   useEffect(() => {
     getChats().then((chats) => {
       if (chats.status === 200) setChats(chats.data)
-      console.log('getChats', chats)
     })
     getRecommendationsChats().then((chats) => {
       if (chats.status === 200) setRecommends(chats.data)
-      console.log('getRecommendationsChats', chats)
     })
   }, [])
 
