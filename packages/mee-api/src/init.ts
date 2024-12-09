@@ -1,4 +1,4 @@
-type InitialAPIType = {
+interface InitialAPIType {
   server_url: string
 }
 

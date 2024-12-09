@@ -1,6 +1,6 @@
 export * from './init'
 // endpoints
 
-export * from './endpoints/chat'
+export * from './exports/chat'
 
 // types
