@@ -36,13 +36,24 @@ export default tseslint.config([
   {
     settings: {
       tailwindcss: {
-        callees: ['animate-none', 'animate-spin', 'animate-ping', 'animate-pulse', 'animate-bounce'],
+        callees: [
+          'animate-none',
+          'animate-spin',
+          'animate-ping',
+          'animate-pulse',
+          'animate-bounce',
+        ],
       },
     },
     rules: {
       'jsdoc/require-jsdoc': 'off',
       'react/jsx-uses-react': 'off',
       'react/react-in-jsx-scope': 'off',
+
+      '@typescript-eslint/no-empty-object-type': [
+        'error',
+        { allowInterfaces: 'with-single-extends' },
+      ],
 
       'import/order': [
         'warn',
