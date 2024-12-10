@@ -8,8 +8,11 @@ const httpConfig: RequestParams = {
   withCredentials: true,
 }
 
-export const getChats = async (id: string) =>
+export const getChat = async (id: string) =>
   await chat.chatControllerGetChat(id, httpConfig)
+
+export const getChats = async () =>
+  await chat.chatControllerGetChats(httpConfig)
 
 export const getRecommendationsChats = async () =>
   await chat.chatControllerGetChatRecommendations(httpConfig)

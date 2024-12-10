@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { AddParticipantDto, ChatResponseDto, CreateChatDto } from './data-contracts'
+import { ChatResponse, CreateChatDto, UserResponse } from './data-contracts'
 import { ContentType, HttpClient, RequestParams } from './http-client'
 
 export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -21,7 +21,7 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @request POST:/chat
    */
   chatControllerCreateChat = (data: CreateChatDto, params: RequestParams = {}) =>
-    this.request<ChatResponseDto, any>({
+    this.request<ChatResponse, any>({
       path: `/chat`,
       method: 'POST',
       body: data,
@@ -37,7 +37,7 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @request GET:/chat
    */
   chatControllerGetChats = (params: RequestParams = {}) =>
-    this.request<object, any>({
+    this.request<ChatResponse[], any>({
       path: `/chat`,
       method: 'GET',
       format: 'json',
@@ -51,25 +51,10 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @request GET:/chat/recommendations
    */
   chatControllerGetChatRecommendations = (params: RequestParams = {}) =>
-    this.request<object, any>({
+    this.request<UserResponse[], any>({
       path: `/chat/recommendations`,
       method: 'GET',
       format: 'json',
-      ...params,
-    })
-  /**
-   * No description
-   *
-   * @tags Chat
-   * @name ChatControllerAddParticipant
-   * @request POST:/chat/{id}/participants
-   */
-  chatControllerAddParticipant = (id: string, data: AddParticipantDto, params: RequestParams = {}) =>
-    this.request<void, any>({
-      path: `/chat/${id}/participants`,
-      method: 'POST',
-      body: data,
-      type: ContentType.Json,
       ...params,
     })
   /**
@@ -80,7 +65,7 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @request GET:/chat/{id}
    */
   chatControllerGetChat = (id: string, params: RequestParams = {}) =>
-    this.request<object, any>({
+    this.request<ChatResponse, any>({
       path: `/chat/${id}`,
       method: 'GET',
       format: 'json',

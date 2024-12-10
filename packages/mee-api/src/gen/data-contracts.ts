@@ -15,17 +15,31 @@ export interface CreateChatDto {
   participantIds: string[]
 }
 
-export interface ChatResponseDto {
+export interface ChatResponse {
   id: string
-  type: object
+  type: ChatResponseTypeEnum
   /** @format date-time */
-  created_at: string
+  created_at: Date
   chat_name: string | null
 }
 
-export interface AddParticipantDto {
-  chatId: string
-  newUserId: string
+export interface UserProfileResponse {
+  /** @format date-time */
+  updated_at: Date
+  user_id: string
+  display_name: string | null
+  username: string
+  bio: string | null
+  photos_urls: string[]
+  /** @format date-time */
+  date_of_birth: Date | null
+}
+
+export interface UserResponse {
+  id: string
+  first_name: string | null
+  last_name: string | null
+  profile: UserProfileResponse | null
 }
 
 export interface CreateMessageDto {
@@ -38,4 +52,10 @@ export interface CreateDirectMessageDto {
   userId: string
   content: string
   replyId?: number
+}
+
+export enum ChatResponseTypeEnum {
+  DIRECT = 'DIRECT',
+  GROUP = 'GROUP',
+  CHANNEL = 'CHANNEL',
 }
