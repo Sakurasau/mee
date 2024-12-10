@@ -5,8 +5,9 @@
   "main": "src/index.ts",
   "scripts": {
     "build": "tsc",
-    "gen:local": "swagger-typescript-api -p http://localhost:5000/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output",
-    "gen:prod": "swagger-typescript-api -p https://mee.social/api/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output"
+    "gen-old:local": "swagger-typescript-api -p http://localhost:5000/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output",
+    "gen-old:prod": "swagger-typescript-api -p https://mee.social/api/swagger/json -o ./src/gen --extract-enums --axios --modular --clean-output",
+    "gen:local": "node --loader ts-node/esm ./src/gen-script.ts"
   },
   "dependencies": {
     "axios": "^1.7.7"
@@ -16,6 +17,7 @@
     "@config/tsconfig": "workspace:^",
     "@types/node": "^22.5.4",
     "swagger-typescript-api": "^13.0.23",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
   }
 }
