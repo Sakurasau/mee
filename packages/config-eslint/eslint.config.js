@@ -1,4 +1,5 @@
 import eslint from '@eslint/js'
+import pluginQuery from '@tanstack/eslint-plugin-query'
 import tsParser from '@typescript-eslint/parser'
 import prettier from 'eslint-config-prettier'
 import _import from 'eslint-plugin-import'
@@ -27,6 +28,7 @@ export default tseslint.config([
   ...tseslint.configs.strict,
   ...tseslint.configs.stylistic,
   ...tailwind.configs['flat/recommended'],
+  ...pluginQuery.configs['flat/recommended'],
   react.configs.flat.recommended,
   // _import.flatConfigs.recommended,
   jsdoc.configs['flat/recommended-typescript'],

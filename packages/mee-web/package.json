@@ -42,6 +42,7 @@
   "devDependencies": {
     "@config/eslint": "workspace:^",
     "@config/tsconfig": "workspace:^",
+    "@tanstack/eslint-plugin-query": "^5.62.1",
     "@tanstack/react-query-devtools": "^5.60.6",
     "@tanstack/router-devtools": "^1.81.10",
     "@tanstack/router-plugin": "^1.81.9",
