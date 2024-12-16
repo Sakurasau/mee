@@ -7,7 +7,7 @@ generateApi({
   output: path.resolve(process.cwd(), './src/gen'),
   url: 'http://localhost:5000/swagger/json',
   httpClientType: 'axios',
-  extractEnums: true,
+  // extractEnums: true,
   modular: true,
   cleanOutput: true,
 
