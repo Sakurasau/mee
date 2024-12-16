@@ -9,7 +9,7 @@
  * ---------------------------------------------------------------
  */
 
-import { ChatResponse, CreateChatDto, UserResponse } from './data-contracts'
+import { ChatItemResponse, ChatResponse, CreateChatDto, CreateDirectChatDto, UserResponse } from './data-contracts'
 import { ContentType, HttpClient, RequestParams } from './http-client'
 
 export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -17,12 +17,28 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * No description
    *
    * @tags Chat
+   * @name ChatControllerCreateDirectChat
+   * @request POST:/chat/create/direct
+   */
+  chatControllerCreateDirectChat = (data: CreateDirectChatDto, params: RequestParams = {}) =>
+    this.request<ChatResponse, any>({
+      path: `/chat/create/direct`,
+      method: 'POST',
+      body: data,
+      type: ContentType.Json,
+      format: 'json',
+      ...params,
+    })
+  /**
+   * No description
+   *
+   * @tags Chat
    * @name ChatControllerCreateChat
-   * @request POST:/chat
+   * @request POST:/chat/create
    */
   chatControllerCreateChat = (data: CreateChatDto, params: RequestParams = {}) =>
     this.request<ChatResponse, any>({
-      path: `/chat`,
+      path: `/chat/create`,
       method: 'POST',
       body: data,
       type: ContentType.Json,
@@ -36,10 +52,19 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @name ChatControllerGetChats
    * @request GET:/chat
    */
-  chatControllerGetChats = (params: RequestParams = {}) =>
-    this.request<ChatResponse[], any>({
+  chatControllerGetChats = (
+    query?: {
+      /** @default 10 */
+      'page-size'?: number
+      /** @default 1 */
+      'page-number'?: number
+    },
+    params: RequestParams = {},
+  ) =>
+    this.request<ChatItemResponse[], any>({
       path: `/chat`,
       method: 'GET',
+      query: query,
       format: 'json',
       ...params,
     })

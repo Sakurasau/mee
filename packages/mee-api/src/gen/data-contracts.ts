@@ -9,18 +9,39 @@
  * ---------------------------------------------------------------
  */
 
+export interface CreateDirectChatDto {
+  userId: string
+}
+
+export interface ChatResponse {
+  id: string
+  type: 'DIRECT' | 'GROUP' | 'CHANNEL'
+  /** @format date-time */
+  created_at: Date
+  chat_name: string | null
+}
+
 export interface CreateChatDto {
   chatName?: string
   type: object
   participantIds: string[]
 }
 
-export interface ChatResponse {
-  id: string
-  type: ChatResponseTypeEnum
+export interface MessageResponse {
+  /** @format int64 */
+  id: number
+  chat_id: string
+  sender_id: string | null
+  content: string | null
   /** @format date-time */
   created_at: Date
-  chat_name: string | null
+  /** @format date-time */
+  updated_at: Date
+  message_type: 'TEXT'
+  status: 'SENT' | 'READ' | 'RECEIVED'
+  is_deleted: boolean
+  /** @format int64 */
+  reply_id: number | null
 }
 
 export interface UserProfileResponse {
@@ -42,6 +63,24 @@ export interface UserResponse {
   profile: UserProfileResponse | null
 }
 
+export interface ChatParticipantsForIncludeResponse {
+  user_id: string
+  /** @format date-time */
+  joined_at: Date
+  user: UserResponse
+}
+
+export interface ChatItemResponse {
+  id: string
+  type: 'DIRECT' | 'GROUP' | 'CHANNEL'
+  /** @format date-time */
+  created_at: Date
+  chat_name: string | null
+  last_message: MessageResponse | null
+  /** Participants without taking into account the current user */
+  participants: ChatParticipantsForIncludeResponse[]
+}
+
 export interface CreateMessageDto {
   chatId: string
   content: string
@@ -52,10 +91,4 @@ export interface CreateDirectMessageDto {
   userId: string
   content: string
   replyId?: number
-}
-
-export enum ChatResponseTypeEnum {
-  DIRECT = 'DIRECT',
-  GROUP = 'GROUP',
-  CHANNEL = 'CHANNEL',
 }
