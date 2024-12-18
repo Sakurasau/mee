@@ -33,4 +33,5 @@ export const configTailwind: Omit<Config, 'content'> = {
   },
   plugins: [import('tailwindcss-animated')],
   mode: 'jit',
+  important: true,
 }
