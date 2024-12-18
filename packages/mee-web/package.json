@@ -22,6 +22,7 @@
     "@config/env": "workspace:^",
     "@config/tailwind": "workspace:^",
     "@lottiefiles/dotlottie-react": "^0.9.3",
+    "@lukemorales/query-key-factory": "^1.3.4",
     "@mee/api": "workspace:^",
     "@tanstack/react-query": "^5.60.6",
     "@tanstack/react-router": "^1.81.10",

@@ -195,6 +195,9 @@ importers:
       '@lottiefiles/dotlottie-react':
         specifier: ^0.9.3
         version: 0.9.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@lukemorales/query-key-factory':
+        specifier: ^1.3.4
+        version: 1.3.4(@tanstack/query-core@5.60.6)(@tanstack/react-query@5.60.6(react@18.3.1))
       '@mee/api':
         specifier: workspace:^
         version: link:../mee-api
@@ -842,6 +845,13 @@ packages:
 
   '@lottiefiles/dotlottie-web@0.36.1':
     resolution: {integrity: sha512-KvxOH5Msk0Ivqpgq4p1DGo1IG2XPX4kEVkhssTaOUEvoeCxDLru+DlbUzwG8b5JcJwEBmrAMzCNzCTmn+uMFxQ==}
+
+  '@lukemorales/query-key-factory@1.3.4':
+    resolution: {integrity: sha512-A3frRDdkmaNNQi6mxIshsDk4chRXWoXa05US8fBo4kci/H+lVmujS6QrwQLLGIkNIRFGjMqp2uKjC4XsLdydRw==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@tanstack/query-core': '>= 4.0.0'
+      '@tanstack/react-query': '>= 4.0.0'
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3840,6 +3850,11 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
 
   '@lottiefiles/dotlottie-web@0.36.1': {}
+
+  '@lukemorales/query-key-factory@1.3.4(@tanstack/query-core@5.60.6)(@tanstack/react-query@5.60.6(react@18.3.1))':
+    dependencies:
+      '@tanstack/query-core': 5.60.6
+      '@tanstack/react-query': 5.60.6(react@18.3.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
