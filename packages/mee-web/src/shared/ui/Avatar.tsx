@@ -48,7 +48,7 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
         style={{
           background: `linear-gradient(to top right, ${primaryGradient}, ${secondaryGradient})`,
         }}
-        className={cn('border-0', className)}
+        className={cn('border-0 flex-none', className)}
         {...props}>
         {initials(title)}
       </AvatarUI>
