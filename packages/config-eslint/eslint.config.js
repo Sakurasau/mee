@@ -8,21 +8,12 @@ import react from 'eslint-plugin-react'
 import tailwind from 'eslint-plugin-tailwindcss'
 import globals from 'globals'
 import tseslint from 'typescript-eslint'
+import hooks from 'eslint-plugin-react-hooks'
 
 export default tseslint.config([
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     ignores: ['**/build/*', '**/node_modules/*', '**/dist/*', '**/src-tauri/*'],
-  },
-  {
-    plugins: {
-      import: _import,
-      prettier: prettier,
-    },
-    languageOptions: {
-      globals: { ...globals.browser, ...globals.node },
-      parser: tsParser,
-    },
   },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
@@ -30,8 +21,23 @@ export default tseslint.config([
   ...tailwind.configs['flat/recommended'],
   ...pluginQuery.configs['flat/recommended'],
   react.configs.flat.recommended,
-  // _import.flatConfigs.recommended,
   jsdoc.configs['flat/recommended-typescript'],
+  // _import.flatConfigs.recommended,
+
+  {
+    plugins: {
+      import: _import,
+      prettier: prettier,
+      'react-hooks': hooks,
+    },
+    languageOptions: {
+      globals: { ...globals.browser, ...globals.node },
+      parser: tsParser,
+    },
+    rules: {
+      ...hooks.configs.recommended.rules,
+    },
+  },
 
   // other ...
   prettier,
