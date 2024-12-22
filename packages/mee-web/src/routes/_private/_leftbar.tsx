@@ -1,7 +1,8 @@
 import { NoConnectionPanel } from '@mee/shared/ui/no-connection-panel'
 import { ChatList } from '@mee/widgets/chat-list'
+import { RecommendedList } from '@mee/widgets/recommended-list'
 import { createFileRoute, Outlet } from '@tanstack/react-router'
-import { Splitter } from 'antd'
+import { Divider, Splitter } from 'antd'
 
 import './layout.module.css'
 
@@ -10,7 +11,18 @@ export const Route = createFileRoute('/_private/_leftbar')({
 })
 
 function LayoutComponent() {
-  const ContentLeftBar = () => <ChatList />
+  const ContentLeftBar = () => (
+    <>
+      <ChatList />
+      <Divider
+        orientation="left"
+        plain
+        className="mb-2 before:w-0 after:w-full">
+        Recommendations
+      </Divider>
+      <RecommendedList />
+    </>
+  )
 
   return (
     <div className="h-screen">
