@@ -16,7 +16,7 @@ import { Route as AuthIndexImport } from './routes/auth/index'
 import { Route as AuthSuccessImport } from './routes/auth/success'
 import { Route as PrivateLeftbarImport } from './routes/_private/_leftbar'
 import { Route as PrivateLeftbarIndexImport } from './routes/_private/_leftbar/index'
-import { Route as PrivateLeftbarChatIdImport } from './routes/_private/_leftbar/$chatId'
+import { Route as PrivateLeftbarChatChatIdImport } from './routes/_private/_leftbar/chat/$chatId'
 
 // Create/Update Routes
 
@@ -48,9 +48,9 @@ const PrivateLeftbarIndexRoute = PrivateLeftbarIndexImport.update({
   getParentRoute: () => PrivateLeftbarRoute,
 } as any)
 
-const PrivateLeftbarChatIdRoute = PrivateLeftbarChatIdImport.update({
-  id: '/$chatId',
-  path: '/$chatId',
+const PrivateLeftbarChatChatIdRoute = PrivateLeftbarChatChatIdImport.update({
+  id: '/chat/$chatId',
+  path: '/chat/$chatId',
   getParentRoute: () => PrivateLeftbarRoute,
 } as any)
 
@@ -86,18 +86,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthIndexImport
       parentRoute: typeof rootRoute
     }
-    '/_private/_leftbar/$chatId': {
-      id: '/_private/_leftbar/$chatId'
-      path: '/$chatId'
-      fullPath: '/$chatId'
-      preLoaderRoute: typeof PrivateLeftbarChatIdImport
-      parentRoute: typeof PrivateLeftbarImport
-    }
     '/_private/_leftbar/': {
       id: '/_private/_leftbar/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof PrivateLeftbarIndexImport
+      parentRoute: typeof PrivateLeftbarImport
+    }
+    '/_private/_leftbar/chat/$chatId': {
+      id: '/_private/_leftbar/chat/$chatId'
+      path: '/chat/$chatId'
+      fullPath: '/chat/$chatId'
+      preLoaderRoute: typeof PrivateLeftbarChatChatIdImport
       parentRoute: typeof PrivateLeftbarImport
     }
   }
@@ -106,13 +106,13 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 interface PrivateLeftbarRouteChildren {
-  PrivateLeftbarChatIdRoute: typeof PrivateLeftbarChatIdRoute
   PrivateLeftbarIndexRoute: typeof PrivateLeftbarIndexRoute
+  PrivateLeftbarChatChatIdRoute: typeof PrivateLeftbarChatChatIdRoute
 }
 
 const PrivateLeftbarRouteChildren: PrivateLeftbarRouteChildren = {
-  PrivateLeftbarChatIdRoute: PrivateLeftbarChatIdRoute,
   PrivateLeftbarIndexRoute: PrivateLeftbarIndexRoute,
+  PrivateLeftbarChatChatIdRoute: PrivateLeftbarChatChatIdRoute,
 }
 
 const PrivateLeftbarRouteWithChildren = PrivateLeftbarRoute._addFileChildren(
@@ -134,16 +134,16 @@ export interface FileRoutesByFullPath {
   '': typeof PrivateLeftbarRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth': typeof AuthIndexRoute
-  '/$chatId': typeof PrivateLeftbarChatIdRoute
   '/': typeof PrivateLeftbarIndexRoute
+  '/chat/$chatId': typeof PrivateLeftbarChatChatIdRoute
 }
 
 export interface FileRoutesByTo {
   '': typeof PrivateRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth': typeof AuthIndexRoute
-  '/$chatId': typeof PrivateLeftbarChatIdRoute
   '/': typeof PrivateLeftbarIndexRoute
+  '/chat/$chatId': typeof PrivateLeftbarChatChatIdRoute
 }
 
 export interface FileRoutesById {
@@ -152,23 +152,23 @@ export interface FileRoutesById {
   '/_private/_leftbar': typeof PrivateLeftbarRouteWithChildren
   '/auth/success': typeof AuthSuccessRoute
   '/auth/': typeof AuthIndexRoute
-  '/_private/_leftbar/$chatId': typeof PrivateLeftbarChatIdRoute
   '/_private/_leftbar/': typeof PrivateLeftbarIndexRoute
+  '/_private/_leftbar/chat/$chatId': typeof PrivateLeftbarChatChatIdRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '' | '/auth/success' | '/auth' | '/$chatId' | '/'
+  fullPaths: '' | '/auth/success' | '/auth' | '/' | '/chat/$chatId'
   fileRoutesByTo: FileRoutesByTo
-  to: '' | '/auth/success' | '/auth' | '/$chatId' | '/'
+  to: '' | '/auth/success' | '/auth' | '/' | '/chat/$chatId'
   id:
     | '__root__'
     | '/_private'
     | '/_private/_leftbar'
     | '/auth/success'
     | '/auth/'
-    | '/_private/_leftbar/$chatId'
     | '/_private/_leftbar/'
+    | '/_private/_leftbar/chat/$chatId'
   fileRoutesById: FileRoutesById
 }
 
@@ -209,8 +209,8 @@ export const routeTree = rootRoute
       "filePath": "_private/_leftbar.tsx",
       "parent": "/_private",
       "children": [
-        "/_private/_leftbar/$chatId",
-        "/_private/_leftbar/"
+        "/_private/_leftbar/",
+        "/_private/_leftbar/chat/$chatId"
       ]
     },
     "/auth/success": {
@@ -219,12 +219,12 @@ export const routeTree = rootRoute
     "/auth/": {
       "filePath": "auth/index.tsx"
     },
-    "/_private/_leftbar/$chatId": {
-      "filePath": "_private/_leftbar/$chatId.tsx",
-      "parent": "/_private/_leftbar"
-    },
     "/_private/_leftbar/": {
       "filePath": "_private/_leftbar/index.tsx",
+      "parent": "/_private/_leftbar"
+    },
+    "/_private/_leftbar/chat/$chatId": {
+      "filePath": "_private/_leftbar/chat/$chatId.tsx",
       "parent": "/_private/_leftbar"
     }
   }
