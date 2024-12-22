@@ -81,6 +81,16 @@ export interface ChatItemResponse {
   participants: ChatParticipantsForIncludeResponse[]
 }
 
+export interface ChatInfoResponse {
+  id: string
+  type: 'DIRECT' | 'GROUP' | 'CHANNEL'
+  /** @format date-time */
+  created_at: Date
+  chat_name: string | null
+  /** Participants without taking into account the current user */
+  participants: ChatParticipantsForIncludeResponse[]
+}
+
 export interface CreateMessageDto {
   chatId: string
   content: string

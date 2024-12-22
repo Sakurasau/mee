@@ -9,7 +9,14 @@
  * ---------------------------------------------------------------
  */
 
-import { ChatItemResponse, ChatResponse, CreateChatDto, CreateDirectChatDto, UserResponse } from './data-contracts'
+import {
+  ChatInfoResponse,
+  ChatItemResponse,
+  ChatResponse,
+  CreateChatDto,
+  CreateDirectChatDto,
+  UserResponse,
+} from './data-contracts'
 import { ContentType, HttpClient, RequestParams } from './http-client'
 
 export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataType> {
@@ -99,7 +106,7 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @request GET:/chat/{id}
    */
   chatControllerGetChat = (id: string, params: RequestParams = {}) =>
-    this.request<ChatResponse, any>({
+    this.request<ChatInfoResponse, any>({
       path: `/chat/${id}`,
       method: 'GET',
       format: 'json',
