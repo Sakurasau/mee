@@ -75,10 +75,19 @@ export class Chat<SecurityDataType = unknown> extends HttpClient<SecurityDataTyp
    * @name ChatControllerGetChatRecommendations
    * @request GET:/chat/recommendations
    */
-  chatControllerGetChatRecommendations = (params: RequestParams = {}) =>
+  chatControllerGetChatRecommendations = (
+    query?: {
+      /** @default 10 */
+      'page-size'?: number
+      /** @default 1 */
+      'page-number'?: number
+    },
+    params: RequestParams = {},
+  ) =>
     this.request<UserResponse[], any>({
       path: `/chat/recommendations`,
       method: 'GET',
+      query: query,
       format: 'json',
       ...params,
     })

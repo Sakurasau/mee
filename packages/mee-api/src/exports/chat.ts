@@ -20,5 +20,11 @@ export const getChats = async ({
     httpConfig,
   )
 
-export const getRecommendationsChats = async () =>
-  await chatObject.chatControllerGetChatRecommendations(httpConfig)
+export const getRecommendationsChats = async ({
+  pageNumber = 1,
+  pageSize = 20,
+}: PaginationQueryType) =>
+  await chatObject.chatControllerGetChatRecommendations(
+    { 'page-number': pageNumber, 'page-size': pageSize },
+    httpConfig,
+  )
