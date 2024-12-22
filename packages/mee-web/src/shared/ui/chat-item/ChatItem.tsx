@@ -1,5 +1,7 @@
 import { ChatItemType } from '@mee/api'
+import { pathChat } from '@mee/shared/lib'
 import { Avatar } from '@mee/shared/ui/avatar'
+import { Link } from '@tanstack/react-router'
 import { FC } from 'react'
 
 interface ChatItemProps {
@@ -13,7 +15,9 @@ export const ChatItem: FC<ChatItemProps> = ({ data }) => {
       : null
 
   return (
-    <div id="card" className="flex items-center gap-2 p-2">
+    <div
+      id="card"
+      className="relative flex items-center gap-2 p-2 hover:bg-gray-100">
       <Avatar
         id={data.id}
         title={data.chat_name ?? directUser?.profile?.display_name ?? ''}
@@ -31,6 +35,7 @@ export const ChatItem: FC<ChatItemProps> = ({ data }) => {
           {data.last_message?.content}
         </p>
       </div>
+      <Link className="absolute inset-0" to={pathChat(data.id)} />
     </div>
   )
 }

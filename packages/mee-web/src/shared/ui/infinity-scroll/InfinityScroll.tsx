@@ -56,7 +56,7 @@ export const InfinityScroll = <T,>({
   }, [status, error, addIssue, removeIssue, keys])
 
   return (
-    <div className="relative h-full">
+    <div className="relative">
       {data && status === 'success' ? (
         data.pages.map((page, i) => (
           <Fragment key={i}>

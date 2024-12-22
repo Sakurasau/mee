@@ -8,7 +8,7 @@ import { FC } from 'react'
 interface ChatListProps {}
 
 export const ChatList: FC<ChatListProps> = ({}) => {
-  const queryParams = queries.chats.infinite()
+  const queryParams = queries.chats.list()
   const query = useInfiniteQuery({
     ...queryParams,
     queryFn: async (ctx) => await queryParams.queryFn(ctx),
@@ -19,7 +19,7 @@ export const ChatList: FC<ChatListProps> = ({}) => {
 
   return (
     <InfinityScroll<ChatItemType>
-      keys={queryParams.queryKey.map((key) => key.toString())}
+      keys={queryParams.queryKey.map((key) => JSON.stringify(key))}
       query={query}
       renderItem={(item) => <ChatItem key={item.id} data={item} />}
     />
