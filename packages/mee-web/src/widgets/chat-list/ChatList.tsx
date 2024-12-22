@@ -1,13 +1,13 @@
 import { ChatItemType } from '@mee/api'
 import { queries } from '@mee/shared/queries'
-import ChatItem from '@mee/shared/ui/chat-item/ChatItem'
-import InfinityScroll from '@mee/shared/ui/infinity-scroll/InfinityScroll'
+import { ChatItem } from '@mee/shared/ui/chat-item'
+import { InfinityScroll } from '@mee/shared/ui/infinity-scroll/'
 import { useInfiniteQuery } from '@tanstack/react-query'
 import { FC } from 'react'
 
 interface ChatListProps {}
 
-const ChatList: FC<ChatListProps> = ({}) => {
+export const ChatList: FC<ChatListProps> = ({}) => {
   const queryParams = queries.chats.infinite()
   const query = useInfiniteQuery({
     ...queryParams,
@@ -19,10 +19,9 @@ const ChatList: FC<ChatListProps> = ({}) => {
 
   return (
     <InfinityScroll<ChatItemType>
+      keys={queryParams.queryKey.map((key) => key.toString())}
       query={query}
       renderItem={(item) => <ChatItem key={item.id} data={item} />}
     />
   )
 }
-
-export default ChatList
