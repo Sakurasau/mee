@@ -1,6 +1,4 @@
-import { cn } from '@mee/shared/lib/cn'
-import { getGradientByName } from '@mee/shared/lib/colors'
-import { initials } from '@mee/shared/lib/user'
+import { cn, getGradientByName, initials } from '@mee/shared/lib'
 import { AvatarProps as AvatarUIProps, Avatar as AvatarUI } from 'antd'
 import { forwardRef, ReactNode, useEffect, useState } from 'react'
 
@@ -10,7 +8,7 @@ interface AvatarProps extends AvatarUIProps {
   src?: string | ReactNode
 }
 
-const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
+export const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
   ({ id, title, src, className, ...props }, ref) => {
     const [isLoading, setIsLoading] = useState(true)
     const [loadedImgSrc, setLoadedImgSrc] = useState<string | undefined>(
@@ -48,7 +46,7 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
         style={{
           background: `linear-gradient(to top right, ${primaryGradient}, ${secondaryGradient})`,
         }}
-        className={cn('border-0 flex-none', className)}
+        className={cn('flex-none border-0', className)}
         {...props}>
         {initials(title)}
       </AvatarUI>
@@ -56,5 +54,3 @@ const Avatar = forwardRef<HTMLSpanElement, AvatarProps>(
   },
 )
 Avatar.displayName = 'Avatar'
-
-export default Avatar

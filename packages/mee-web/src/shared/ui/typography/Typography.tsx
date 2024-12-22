@@ -1,6 +1,5 @@
+import { cn } from '@mee/shared/lib'
 import { type ReactNode } from 'react'
-
-import { cn } from '../lib/cn'
 
 interface TypographyProps {
   children: ReactNode

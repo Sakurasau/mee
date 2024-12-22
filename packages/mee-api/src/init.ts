@@ -4,7 +4,7 @@ interface InitialAPIType {
 
 let values: InitialAPIType | null = null
 
-const initialAPI = ({ server_url }: InitialAPIType) => {
+const InitialAPI = ({ server_url }: InitialAPIType) => {
   values = {
     server_url,
   }
@@ -12,11 +12,11 @@ const initialAPI = ({ server_url }: InitialAPIType) => {
 
 const getValue = (val: keyof InitialAPIType) => {
   if (!values) {
-    throw new Error('InitialAPI is not initialized')
+    throw new Error('⚠️ InitialAPI is not initialized')
   }
 
   return values[val]
 }
 
-export default initialAPI
 export { getValue, type InitialAPIType }
+export default InitialAPI

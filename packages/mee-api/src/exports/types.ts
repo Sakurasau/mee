@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios'
+
 import {
   ChatItemResponse,
   ChatResponse,
@@ -9,3 +11,6 @@ export type ChatType = ChatResponse
 export type ChatsType = ChatResponse[]
 export type UserType = UserResponse
 export type UsersType = UserResponse[]
+
+// Axios
+export { AxiosError }

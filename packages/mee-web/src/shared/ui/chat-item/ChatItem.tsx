@@ -1,13 +1,12 @@
 import { ChatItemType } from '@mee/api'
+import { Avatar } from '@mee/shared/ui/avatar'
 import { FC } from 'react'
-
-import Avatar from '../Avatar'
 
 interface ChatItemProps {
   data: ChatItemType
 }
 
-const ChatItem: FC<ChatItemProps> = ({ data }) => {
+export const ChatItem: FC<ChatItemProps> = ({ data }) => {
   const directUser = // implies the chat type Direct
     data.type === 'DIRECT' && data.participants.length
       ? data.participants[0].user
@@ -35,5 +34,3 @@ const ChatItem: FC<ChatItemProps> = ({ data }) => {
     </div>
   )
 }
-
-export default ChatItem

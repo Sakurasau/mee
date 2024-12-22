@@ -1,6 +1,6 @@
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import { useEnvironmentStore } from '@mee/entities/environment'
-import { H3 } from '@mee/shared/ui/Typography'
+import { H3 } from '@mee/shared/ui/typography'
 import { createFileRoute } from '@tanstack/react-router'
 import { Button } from 'antd'
 

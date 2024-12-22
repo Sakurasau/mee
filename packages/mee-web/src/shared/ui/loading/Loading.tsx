@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 type LoadingProps = Omit<React.SVGProps<SVGSVGElement>, 'viewBox' | 'xmlns'>
 
-const Loading: FC<LoadingProps> = ({ className, ...props }) => {
+export const Loading: FC<LoadingProps> = ({ className, ...props }) => {
   return (
     <svg
       viewBox="0 0 800 800"
@@ -34,5 +34,3 @@ const Loading: FC<LoadingProps> = ({ className, ...props }) => {
     </svg>
   )
 }
-
-export default Loading

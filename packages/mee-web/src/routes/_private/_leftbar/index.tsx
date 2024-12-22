@@ -1,5 +1,5 @@
 import { DotLottieReact } from '@lottiefiles/dotlottie-react'
-import { H4 } from '@mee/shared/ui/Typography'
+import { H4 } from '@mee/shared/ui/typography'
 import { createFileRoute } from '@tanstack/react-router'
 import { motion } from 'framer-motion'
 
@@ -9,7 +9,7 @@ export const Route = createFileRoute('/_private/_leftbar/')({
 
 function RouteComponent() {
   return (
-    <div className="mx-4 flex h-screen flex-col items-center justify-center gap-2">
+    <div className="mx-4 flex h-full flex-col items-center justify-center gap-2">
       <motion.div
         className="w-96"
         initial={{ opacity: 0 }}
