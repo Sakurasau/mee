@@ -1,8 +1,8 @@
 import { createQueryKeys } from '@lukemorales/query-key-factory'
-import { getChat, getChats } from '@mee/api'
+import { getChat, getChats, getRecommendationsChats } from '@mee/api'
 
 export const chats = createQueryKeys('chats', {
-  infinite: (pageSize = 20) => ({
+  list: (pageSize = 20) => ({
     queryKey: [{ pageSize }],
     queryFn: async (ctx) => {
       const res = await getChats({
@@ -16,8 +16,22 @@ export const chats = createQueryKeys('chats', {
       }
     },
   }),
+  recommended: (pageSize = 20) => ({
+    queryKey: [{ pageSize }],
+    queryFn: async (ctx) => {
+      const res = await getRecommendationsChats({
+        pageNumber: Number(ctx.pageParam),
+        pageSize: pageSize,
+      })
+
+      return {
+        data: res.data,
+        hasMore: res.data.length === pageSize,
+      }
+    },
+  }),
   detail: (chatId: string) => ({
     queryKey: [chatId],
-    queryFn: () => getChat(chatId),
+    queryFn: async () => (await getChat(chatId)).data,
   }),
 })
