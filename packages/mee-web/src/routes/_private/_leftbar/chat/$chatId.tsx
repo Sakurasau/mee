@@ -1,31 +1,21 @@
-import { createFileRoute, Link } from '@tanstack/react-router'
-// import { useAuthStore } from '@mee/entities/auth'
-// import { fullName } from '@mee/shared/lib/user'
-// import Avatar from '@mee/shared/ui/Avatar'
+import { ChatHeader } from '@mee/features/chat-header'
+import { queries } from '@mee/shared/queries'
+import { useQuery } from '@tanstack/react-query'
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_private/_leftbar/chat/$chatId')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  // const { user } = useAuthStore()
+  const { chatId } = Route.useParams()
+  const { data } = useQuery(queries.chats.detail(chatId))
+
+  if (!(data)) return null
 
   return (
-    <></>
-    // <div className="flex gap-2 p-2">
-    //   <Link to="/" className="[&.active]:text-purple-500">
-    //     Home
-    //   </Link>
-    //   <Link to="/auth" className="[&.active]:text-purple-500">
-    //     Auth
-    //   </Link>
-    //   <Avatar
-    //     className="ml-auto"
-    //     shape="square"
-    //     id={user?.id}
-    //     title={fullName(user)}
-    //     src={user?.avatar_url}
-    //   />
-    // </div>
+    <div className="size-full">
+      <ChatHeader data={directUser} />
+    </div>
   )
 }
